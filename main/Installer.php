@@ -54,9 +54,10 @@ class Installer extends LibraryInstaller {
      * @return string: 安装路径。
      */
     protected function getDistTargetDir(PackageInterface $package) {
-        [$vendor, $name] = explode('/', $package->getPrettyName());
-        $extra = $this->composer->getPackage()->getExtra();
-        foreach ($extra['installer-paths'] as $path => $names) {
+        $packageExtra = $package->getExtra();
+        $projectExtra = $this->composer->getPackage()->getExtra();
+        $name = $packageExtra['witpact-alias'] ?? $package->getName();
+        foreach ($projectExtra['installer-paths'] as $path => $names) {
             if (in_array(self::MAP[$this->type], $names)) {
                 return str_replace('{$name}', $name, $path);
             }

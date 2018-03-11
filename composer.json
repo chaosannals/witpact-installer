@@ -1,5 +1,4 @@
 {
-    "version": "0.0.1",
     "name": "chenshenchao/witpact-installer",
     "description": "Yet a composer installer of WitPact.",
     "type": "composer-plugin",

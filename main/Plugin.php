@@ -15,8 +15,8 @@ final class Plugin implements PluginInterface {
      */
     public function activate(Composer $composer, IOInterface $io) {
         $manager = $composer->getInstallationManager();
+        $manager->addInstaller(new Creator($io, $composer));
         $manager->addInstaller(new Installer($io, $composer, 'witpact-theme'));
         $manager->addInstaller(new Installer($io, $composer, 'witpact-plugin'));
-        $manager->addInstaller(new ProjectInstaller($io, $composer));
     }
 }

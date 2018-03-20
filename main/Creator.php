@@ -1,22 +1,14 @@
 <?php namespace WitPact\Composer;
 
 use Composer\Package\PackageInterface;
-use Composer\Installer\LibraryInstaller;
+use Composer\Installer\ProjectInstaller;
 use Composer\Repository\InstalledRepositoryInterface;
 
 /**
  * 安装器
  * 
  */
-class ProjectInstaller extends LibraryInstaller {
-    /**
-     * 匹配支持的类型。
-     * 
-     */
-    public function supports($packageType) {
-        return 'project' === $packageType;
-    }
-
+class Creator extends ProjectInstaller {
     /**
      * 安装。
      * 
